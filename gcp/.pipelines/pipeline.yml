@@ -1,0 +1,9 @@
+image: google/cloud-sdk:latest
+
+pipelines:
+  default:
+      - step:
+          name: 'Authenticate on GCP'
+          script:
+            - echo $GCP_JSON > gcp.json
+            - gcloud auth activate-service-account --project=autoavaliar-dev --key-file=gcp.json
